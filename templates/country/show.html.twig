@@ -1,0 +1,49 @@
+<style>
+    th, td {
+        padding: 5px;
+    }
+
+    th {
+        text-align: center;
+    }
+
+</style>
+
+<h1 style="text-align: center">All Countries</h1>
+
+{% block body %}
+
+    <table class="table table-hover table-responsive" border="1px" align="center">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Continent ID</th>
+            <th>Alpha-2-Code</th>
+            <th>CurrencyCode</th>
+            <th colspan="2">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for country in countries %}
+            <tr>
+                <td> {{ country.id }} </td>
+                <td> {{ country.name }} </td>
+                <td> {{ country.continent.name }} </td>
+                <td> {{ country.alpha2Code }} </td>
+                <td> {{ country.currencyCode }} </td>
+                <td><a href="country/delete/{{ country.id }}">Delete</a></td>
+                <td><a href="update/{{ country.id }}">Update</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {# display navigation #}
+    <div class="navigation" align="center">
+        {{ knp_pagination_render(countries) }}
+    </div>
+
+    <div align="center">
+        <a href="/country/new">Add New Country</a>
+    </div>
+{% endblock %}
