@@ -18,6 +18,7 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th colspan="2">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -25,18 +26,18 @@
             <tr>
                 <td> {{ continent.id }} </td>
                 <td> {{ continent.name }} </td>
-                <td><a href="country/delete/{{ country.id }}">Delete</a></td>
-                <td><a href="update/{{ country.id }}">Update</a></td>
+                <td><a href="delete/{{ continent.id }}">Delete</a></td>
+                <td><a href="update/{{ continent.id }}">Update</a></td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
     {# display navigation #}
     <div class="navigation" align="center">
-        {{ knp_pagination_render(countries) }}
+        {{ knp_pagination_render(continents) }}
     </div>
 
     <div align="center">
-        <a href="/country/new">Add New Country</a>
+        <a href="/continent/new">Add New Continent</a>
     </div>
 {% endblock %}

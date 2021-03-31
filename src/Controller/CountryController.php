@@ -74,7 +74,9 @@ class CountryController extends AbstractController
                 'attr' => array('class' => 'btn btn-primary mt-3')))
             ->getForm();
 
-        $form->handleRequest($request);
+        if (isset($form)) {
+            $form->handleRequest($request);
+        }
         if ($form->isSubmitted() && $form->isValid()) {
             $country = $form->getData();
 
